@@ -11,7 +11,7 @@ module TD::Types
     attribute :url, TD::Types::String
     attribute :thumbnail, TD::Types::Photo.optional.default(nil)
     attribute :duration, TD::Types::Coercible::Integer
-    attribute :author, TD::Types::String
+    attribute :author, TD::Types::String.optional.default(nil)
     attribute :width, TD::Types::Coercible::Integer
     attribute :height, TD::Types::Coercible::Integer
   end
