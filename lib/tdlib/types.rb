@@ -202,6 +202,14 @@ module TD::Types
       'profileAccentColors'                                     => 'ProfileAccentColors',
       'profileAccentColor'                                      => 'ProfileAccentColor',
       'emojiStatus'                                             => 'EmojiStatus',
+      'emojiStatusTypeCustomEmoji'                               => 'EmojiStatusTypeCustomEmoji',
+      'paidReactionTypeRegular'                                  => 'PaidReactionTypeRegular',
+      'chatFolderName'                                           => 'ChatFolderName',
+      'updateDefaultPaidReactionType'                            => 'Update::DefaultPaidReactionType',
+      'accountInfo'                                              => 'AccountInfo',
+      'verificationStatus'                                       => 'VerificationStatus',
+      'messageTopicSavedMessages'                                => 'MessageTopicSavedMessages',
+      'messageTopicForum'                                        => 'MessageTopicForum',
       'emojiStatuses'                                           => 'EmojiStatuses',
       'usernames'                                               => 'Usernames',
       'user'                                                    => 'User',
@@ -1779,9 +1787,26 @@ module TD::Types
       end
       
       if (klass = LOOKUP_TABLE[type])
-        const_get(klass).new(object)
+        begin
+          const_get(klass).new(object)
+        rescue NameError
+          # Autoload may be missing for compat placeholders; define empty types on the fly
+          if klass.include?("::")
+            parts = klass.split('::')
+            mod = TD::Types
+            last = parts.pop
+            parts.each { |p| mod = mod.const_defined?(p) ? mod.const_get(p) : mod.const_set(p, Module.new) }
+            mod.const_set(last, Class.new(Base)) unless mod.const_defined?(last)
+          else
+            const_set(klass, Class.new(Base)) unless const_defined?(klass)
+          end
+          const_get(klass).new(object)
+        end
       else
-        raise ArgumentError.new("Can't find class for #{type}")
+        # Lenient: define unknown types on the fly using CamelCase of @type
+        const_name = camelize(type)
+        TD::Types.const_set(const_name, Class.new(Base)) unless TD::Types.const_defined?(const_name)
+        const_get(const_name).new(object)
       end
     else 
       object
