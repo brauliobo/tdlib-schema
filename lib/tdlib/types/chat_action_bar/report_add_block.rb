@@ -12,6 +12,6 @@ module TD::Types
   #   and this is the distance between the users.
   class ChatActionBar::ReportAddBlock < ChatActionBar
     attribute :can_unarchive, TD::Types::Bool
-    attribute :distance, TD::Types::Coercible::Integer
+    attribute :distance, TD::Types::Coercible::Integer.default(0)
   end
 end

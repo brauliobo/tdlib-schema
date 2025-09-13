@@ -96,5 +96,16 @@ module TD::Types
     attribute :restriction_reason, TD::Types::String
     attribute :content, TD::Types::MessageContent
     attribute :reply_markup, TD::Types::ReplyMarkup.optional.default(nil)
+
+    def text
+      case content
+      when MessageContent::Text
+        content.text&.text
+      when MessageContent::Photo, MessageContent::Video, MessageContent::Audio, MessageContent::Document
+        content.caption&.text
+      else
+        nil
+      end
+    end
   end
 end

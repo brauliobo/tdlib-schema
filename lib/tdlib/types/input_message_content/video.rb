@@ -26,7 +26,7 @@ module TD::Types
     attribute :supports_streaming, TD::Types::Bool
     attribute :caption, TD::Types::FormattedText
     attribute :show_caption_above_media, TD::Types::Bool
-    attribute :self_destruct_type, TD::Types::MessageSelfDestructType
+    attribute :self_destruct_type, TD::Types::MessageSelfDestructType.optional.default(nil)
     attribute :has_spoiler, TD::Types::Bool
   end
 end

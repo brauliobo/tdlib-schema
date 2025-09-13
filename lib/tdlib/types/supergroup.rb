@@ -54,22 +54,22 @@ module TD::Types
     attribute :status, TD::Types::ChatMemberStatus
     attribute :member_count, TD::Types::Coercible::Integer
     attribute :boost_level, TD::Types::Coercible::Integer
-    attribute :has_linked_chat, TD::Types::Bool
-    attribute :has_location, TD::Types::Bool
-    attribute :sign_messages, TD::Types::Bool
-    attribute :show_message_sender, TD::Types::Bool
-    attribute :join_to_send_messages, TD::Types::Bool
-    attribute :join_by_request, TD::Types::Bool
-    attribute :is_slow_mode_enabled, TD::Types::Bool
-    attribute :is_channel, TD::Types::Bool
-    attribute :is_broadcast_group, TD::Types::Bool
-    attribute :is_forum, TD::Types::Bool
-    attribute :is_verified, TD::Types::Bool
-    attribute :has_sensitive_content, TD::Types::Bool
-    attribute :restriction_reason, TD::Types::String
-    attribute :is_scam, TD::Types::Bool
-    attribute :is_fake, TD::Types::Bool
-    attribute :has_active_stories, TD::Types::Bool
-    attribute :has_unread_active_stories, TD::Types::Bool
+    attribute :has_linked_chat, TD::Types::Bool.default(false)
+    attribute :has_location, TD::Types::Bool.default(false)
+    attribute :sign_messages, TD::Types::Bool.default(false)
+    attribute :show_message_sender, TD::Types::Bool.default(false)
+    attribute :join_to_send_messages, TD::Types::Bool.default(false)
+    attribute :join_by_request, TD::Types::Bool.default(false)
+    attribute :is_slow_mode_enabled, TD::Types::Bool.default(false)
+    attribute :is_channel, TD::Types::Bool.default(false)
+    attribute :is_broadcast_group, TD::Types::Bool.default(false)
+    attribute :is_forum, TD::Types::Bool.default(false)
+    attribute :is_verified, TD::Types::Bool.default(false)
+    attribute :has_sensitive_content, TD::Types::Bool.default(false)
+    attribute :restriction_reason, TD::Types::String.default('')
+    attribute :is_scam, TD::Types::Bool.default(false)
+    attribute :is_fake, TD::Types::Bool.default(false)
+    attribute :has_active_stories, TD::Types::Bool.default(false)
+    attribute :has_unread_active_stories, TD::Types::Bool.default(false)
   end
 end

@@ -54,26 +54,26 @@ module TD::Types
     attribute :phone_number, TD::Types::String
     attribute :status, TD::Types::UserStatus
     attribute :profile_photo, TD::Types::ProfilePhoto.optional.default(nil)
-    attribute :accent_color_id, TD::Types::Coercible::Integer
-    attribute :background_custom_emoji_id, TD::Types::Coercible::Integer
-    attribute :profile_accent_color_id, TD::Types::Coercible::Integer
-    attribute :profile_background_custom_emoji_id, TD::Types::Coercible::Integer
+    attribute :accent_color_id, TD::Types::Coercible::Integer.default(0)
+    attribute :background_custom_emoji_id, TD::Types::Coercible::Integer.default(0)
+    attribute :profile_accent_color_id, TD::Types::Coercible::Integer.default(0)
+    attribute :profile_background_custom_emoji_id, TD::Types::Coercible::Integer.default(0)
     attribute :emoji_status, TD::Types::EmojiStatus.optional.default(nil)
-    attribute :is_contact, TD::Types::Bool
-    attribute :is_mutual_contact, TD::Types::Bool
-    attribute :is_close_friend, TD::Types::Bool
-    attribute :is_verified, TD::Types::Bool
-    attribute :is_premium, TD::Types::Bool
-    attribute :is_support, TD::Types::Bool
-    attribute :restriction_reason, TD::Types::String
-    attribute :is_scam, TD::Types::Bool
-    attribute :is_fake, TD::Types::Bool
-    attribute :has_active_stories, TD::Types::Bool
-    attribute :has_unread_active_stories, TD::Types::Bool
-    attribute :restricts_new_chats, TD::Types::Bool
-    attribute :have_access, TD::Types::Bool
+    attribute :is_contact, TD::Types::Bool.default(false)
+    attribute :is_mutual_contact, TD::Types::Bool.default(false)
+    attribute :is_close_friend, TD::Types::Bool.default(false)
+    attribute :is_verified, TD::Types::Bool.default(false)
+    attribute :is_premium, TD::Types::Bool.default(false)
+    attribute :is_support, TD::Types::Bool.default(false)
+    attribute :restriction_reason, TD::Types::String.default('')
+    attribute :is_scam, TD::Types::Bool.default(false)
+    attribute :is_fake, TD::Types::Bool.default(false)
+    attribute :has_active_stories, TD::Types::Bool.default(false)
+    attribute :has_unread_active_stories, TD::Types::Bool.default(false)
+    attribute :restricts_new_chats, TD::Types::Bool.default(false)
+    attribute :have_access, TD::Types::Bool.default(false)
     attribute :type, TD::Types::UserType
     attribute :language_code, TD::Types::String
-    attribute :added_to_attachment_menu, TD::Types::Bool
+    attribute :added_to_attachment_menu, TD::Types::Bool.default(false)
   end
 end
