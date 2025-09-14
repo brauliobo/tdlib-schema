@@ -65,35 +65,35 @@ module TD::Types
     attribute :chat_id, TD::Types::Coercible::Integer
     attribute :sending_state, TD::Types::MessageSendingState.optional.default(nil)
     attribute :scheduling_state, TD::Types::MessageSchedulingState.optional.default(nil)
-    attribute :is_outgoing, TD::Types::Bool
-    attribute :is_pinned, TD::Types::Bool
-    attribute :is_from_offline, TD::Types::Bool
-    attribute :can_be_saved, TD::Types::Bool
-    attribute :has_timestamped_media, TD::Types::Bool
-    attribute :is_channel_post, TD::Types::Bool
-    attribute :is_topic_message, TD::Types::Bool
-    attribute :contains_unread_mention, TD::Types::Bool
+    attribute :is_outgoing, TD::Types::Bool.optional.default(false)
+    attribute :is_pinned, TD::Types::Bool.optional.default(false)
+    attribute :is_from_offline, TD::Types::Bool.optional.default(false)
+    attribute :can_be_saved, TD::Types::Bool.optional.default(false)
+    attribute :has_timestamped_media, TD::Types::Bool.optional.default(false)
+    attribute :is_channel_post, TD::Types::Bool.optional.default(false)
+    attribute :is_topic_message, TD::Types::Bool.optional.default(false)
+    attribute :contains_unread_mention, TD::Types::Bool.optional.default(false)
     attribute :date, TD::Types::Coercible::Integer
     attribute :edit_date, TD::Types::Coercible::Integer
     attribute :forward_info, TD::Types::MessageForwardInfo.optional.default(nil)
     attribute :import_info, TD::Types::MessageImportInfo.optional.default(nil)
     attribute :interaction_info, TD::Types::MessageInteractionInfo.optional.default(nil)
-    attribute :unread_reactions, TD::Types::Array.of(TD::Types::UnreadReaction)
+    attribute :unread_reactions, TD::Types::Array.of(TD::Types::UnreadReaction).default([])
     attribute :fact_check, TD::Types::FactCheck.optional.default(nil)
     attribute :reply_to, TD::Types::MessageReplyTo.optional.default(nil)
-    attribute :message_thread_id, TD::Types::Coercible::Integer
-    attribute :saved_messages_topic_id, TD::Types::Coercible::Integer
+    attribute :message_thread_id, TD::Types::Coercible::Integer.optional.default(0)
+    attribute :saved_messages_topic_id, TD::Types::Coercible::Integer.optional.default(0)
     attribute :self_destruct_type, TD::Types::MessageSelfDestructType.optional.default(nil)
-    attribute :self_destruct_in, TD::Types::Coercible::Float
-    attribute :auto_delete_in, TD::Types::Coercible::Float
-    attribute :via_bot_user_id, TD::Types::Coercible::Integer
-    attribute :sender_business_bot_user_id, TD::Types::Coercible::Integer
-    attribute :sender_boost_count, TD::Types::Coercible::Integer
+    attribute :self_destruct_in, TD::Types::Coercible::Float.optional.default(0.0)
+    attribute :auto_delete_in, TD::Types::Coercible::Float.optional.default(0.0)
+    attribute :via_bot_user_id, TD::Types::Coercible::Integer.optional.default(0)
+    attribute :sender_business_bot_user_id, TD::Types::Coercible::Integer.optional.default(0)
+    attribute :sender_boost_count, TD::Types::Coercible::Integer.optional.default(0)
     attribute :author_signature, TD::Types::String.optional.default(nil)
-    attribute :media_album_id, TD::Types::Coercible::Integer
-    attribute :effect_id, TD::Types::Coercible::Integer
-    attribute :has_sensitive_content, TD::Types::Bool
-    attribute :restriction_reason, TD::Types::String
+    attribute :media_album_id, TD::Types::Coercible::Integer.optional.default(0)
+    attribute :effect_id, TD::Types::Coercible::Integer.optional.default(0)
+    attribute :has_sensitive_content, TD::Types::Bool.optional.default(false)
+    attribute :restriction_reason, TD::Types::String.optional.default("")
     attribute :content, TD::Types::MessageContent
     attribute :reply_markup, TD::Types::ReplyMarkup.optional.default(nil)
 
@@ -107,5 +107,6 @@ module TD::Types
         nil
       end
     end
+    
   end
 end
