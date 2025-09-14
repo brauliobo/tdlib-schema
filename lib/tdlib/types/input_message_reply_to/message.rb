@@ -7,6 +7,6 @@ module TD::Types
   #   Must always be null for replies in secret chats.
   class InputMessageReplyTo::Message < InputMessageReplyTo
     attribute :message_id, TD::Types::Coercible::Integer
-    attribute :quote, TD::Types::InputTextQuote
+    attribute :quote, TD::Types::InputTextQuote.optional.default(nil)
   end
 end

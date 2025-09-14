@@ -8,6 +8,6 @@ module TD::Types
   class InputMessageReplyTo::ExternalMessage < InputMessageReplyTo
     attribute :chat_id, TD::Types::Coercible::Integer
     attribute :message_id, TD::Types::Coercible::Integer
-    attribute :quote, TD::Types::InputTextQuote
+    attribute :quote, TD::Types::InputTextQuote.optional.default(nil)
   end
 end
