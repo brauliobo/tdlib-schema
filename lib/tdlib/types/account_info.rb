@@ -1,7 +1,5 @@
 module TD::Types
-  # AccountInfo (compat stub for older TDLibs)
+  # TDLib account info placeholder (schema compat).
   class AccountInfo < Base
   end
 end
-
-

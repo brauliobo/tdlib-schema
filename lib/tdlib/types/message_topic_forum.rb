@@ -1,7 +1,5 @@
 module TD::Types
-  # MessageTopicForum (compat stub for older TDLibs)
+  # Forum topic type placeholder.
   class MessageTopicForum < Base
   end
 end
-
-

@@ -1,7 +1,7 @@
 module TD::Types
-  # Update for default paid reaction type (compat placeholder)
-  class Update::DefaultPaidReactionType < Update
+  class Update < Base
+    # Placeholder for updateDefaultPaidReactionType update to avoid missing-constant errors.
+    class DefaultPaidReactionType < Update
+    end
   end
 end
-
-

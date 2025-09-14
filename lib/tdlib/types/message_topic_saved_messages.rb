@@ -1,7 +1,5 @@
 module TD::Types
-  # MessageTopicSavedMessages (compat stub for older TDLibs)
+  # Saved Messages topic type placeholder.
   class MessageTopicSavedMessages < Base
   end
 end
-
-

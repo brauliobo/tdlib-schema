@@ -1,7 +1,5 @@
 module TD::Types
-  # VerificationStatus (compat stub for older TDLibs)
+  # Verification status placeholder (schema compat).
   class VerificationStatus < Base
   end
 end
-
-

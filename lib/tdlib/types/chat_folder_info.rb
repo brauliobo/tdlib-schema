@@ -10,7 +10,7 @@ module TD::Types
   # @attr has_my_invite_links [Boolean] True, if the chat folder has invite links created by the current user.
   class ChatFolderInfo < Base
     attribute :id, TD::Types::Coercible::Integer
-    attribute :title, TD::Types::String
+    attribute :title, TD::Types::String.constructor { |v| v.nil? ? '' : v }
     attribute :icon, TD::Types::ChatFolderIcon
     attribute :color_id, TD::Types::Coercible::Integer
     attribute :is_shareable, TD::Types::Bool

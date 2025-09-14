@@ -1,7 +1,5 @@
 module TD::Types
-  # Chat folder name (compat stub for older TDLibs)
+  # Wrapper for chat folder name value.
   class ChatFolderName < Base
   end
 end
-
-

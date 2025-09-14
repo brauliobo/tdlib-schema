@@ -65,7 +65,7 @@ module TD::Types
     attribute :is_verified, TD::Types::Bool.default(false)
     attribute :is_premium, TD::Types::Bool.default(false)
     attribute :is_support, TD::Types::Bool.default(false)
-    attribute :restriction_reason, TD::Types::String.default('')
+    attribute :restriction_reason, TD::Types::String.constructor { |v| v.nil? ? '' : v }
     attribute :is_scam, TD::Types::Bool.default(false)
     attribute :is_fake, TD::Types::Bool.default(false)
     attribute :has_active_stories, TD::Types::Bool.default(false)

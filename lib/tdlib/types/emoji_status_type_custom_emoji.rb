@@ -5,7 +5,7 @@ module TD::Types
   # @attr expiration_date [Integer] Expiration timestamp; 0 if never.
   class EmojiStatusTypeCustomEmoji < Base
     attribute :custom_emoji_id, TD::Types::Coercible::Integer
-    attribute :expiration_date, TD::Types::Coercible::Integer.default(0)
+    attribute :expiration_date, TD::Types::Coercible::Integer.default(0).constructor { |v| v || 0 }
   end
 end
 
