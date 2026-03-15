@@ -7,7 +7,14 @@ module TD::Types
     transform_types do |type|
       if type.default?
         type.constructor do |value|
-          value.nil? ? Dry::Types::Undefined : value
+          if value.nil?
+            # For optional types (that accept nil), pass nil through directly
+            # instead of converting to Undefined which would re-trigger the
+            # default and then fail the type constraint for complex types.
+            type.type.optional? ? nil : Dry::Types::Undefined
+          else
+            value
+          end
         end
       else
         type
