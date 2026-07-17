@@ -21,7 +21,7 @@ module TD::Types
     attribute :use_default_mute_stories, TD::Types::Bool
     attribute :mute_stories, TD::Types::Bool
     attribute :story_sound_id, TD::Types::Coercible::Integer
-    attribute :show_story_sender, TD::Types::Bool
+    attribute :show_story_sender, TD::Types::Bool.default(false)
     attribute :disable_pinned_message_notifications, TD::Types::Bool
     attribute :disable_mention_notifications, TD::Types::Bool
   end
