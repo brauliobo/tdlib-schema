@@ -14,5 +14,9 @@ module TD::Types
     attribute :active_usernames, TD::Types::Array.of(TD::Types::String)
     attribute :disabled_usernames, TD::Types::Array.of(TD::Types::String)
     attribute :editable_username, TD::Types::String
+
+    def active?(username)
+      active_usernames.any? { |active| active.casecmp?(username.to_s) }
+    end
   end
 end
