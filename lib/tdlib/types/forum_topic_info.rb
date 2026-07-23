@@ -1,7 +1,8 @@
 module TD::Types
   # Contains basic information about a forum topic.
   #
-  # @attr message_thread_id [Integer] Message thread identifier of the topic.
+  # @attr chat_id [Integer] Identifier of the chat to which the topic belongs.
+  # @attr forum_topic_id [Integer] Forum topic identifier of the topic.
   # @attr name [TD::Types::String] Name of the topic.
   # @attr icon [TD::Types::ForumTopicIcon] Icon of the topic.
   # @attr creation_date [Integer] Point in time (Unix timestamp) when the topic was created.
@@ -10,8 +11,10 @@ module TD::Types
   # @attr is_outgoing [Boolean] True, if the topic was created by the current user.
   # @attr is_closed [Boolean] True, if the topic is closed.
   # @attr is_hidden [Boolean] True, if the topic is hidden above the topic list and closed; for General topic only.
+  # @attr is_name_implicit [Boolean] True, if the name of the topic wasn't added explicitly.
   class ForumTopicInfo < Base
-    attribute :message_thread_id, TD::Types::Coercible::Integer
+    attribute :chat_id, TD::Types::Coercible::Integer
+    attribute :forum_topic_id, TD::Types::Coercible::Integer
     attribute :name, TD::Types::String
     attribute :icon, TD::Types::ForumTopicIcon
     attribute :creation_date, TD::Types::Coercible::Integer
@@ -20,5 +23,6 @@ module TD::Types
     attribute :is_outgoing, TD::Types::Bool
     attribute :is_closed, TD::Types::Bool
     attribute :is_hidden, TD::Types::Bool
+    attribute :is_name_implicit, TD::Types::Bool
   end
 end

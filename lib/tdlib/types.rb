@@ -2143,6 +2143,8 @@ module TD::Types
     message_sponsor
     message_statistics
     message_thread_info
+    message_topic_forum
+    message_topic_saved_messages
     message_viewer
     message_viewers
     messages

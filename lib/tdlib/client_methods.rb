@@ -1144,16 +1144,18 @@ module TD::ClientMethods
   #
   # @param chat_id [Integer] Identifier of the chat.
   # @param name [TD::Types::String] Name of the topic; 1-128 characters.
+  # @param is_name_implicit [Boolean] Pass true if the topic name wasn't entered explicitly.
   # @param icon [TD::Types::ForumTopicIcon] Icon of the topic.
   #   Icon color must be one of 0x6FB9F0, 0xFFD67E, 0xCB86DB, 0x8EEE98, 0xFF93B2, or 0xFB6F5F.
   #   Telegram Premium users can use any custom emoji as topic icon, other users can use only a custom emoji returned
   #   by getForumTopicDefaultIcons.
   # @return [TD::Types::ForumTopicInfo]
-  def create_forum_topic(chat_id:, name:, icon:)
-    broadcast('@type'   => 'createForumTopic',
-              'chat_id' => chat_id,
-              'name'    => name,
-              'icon'    => icon)
+  def create_forum_topic(chat_id:, name:, is_name_implicit:, icon:)
+    broadcast('@type'            => 'createForumTopic',
+              'chat_id'          => chat_id,
+              'name'             => name,
+              'is_name_implicit' => is_name_implicit,
+              'icon'             => icon)
   end
   
   # Creates a link for the given invoice; for bots only.
@@ -3653,20 +3655,20 @@ module TD::ClientMethods
   #   Use 0 or any date in the future to get results from the last topic.
   # @param offset_message_id [Integer] The message identifier of the last message in the last found topic, or 0 for the
   #   first request.
-  # @param offset_message_thread_id [Integer] The message thread identifier of the last found topic, or 0 for the first
+  # @param offset_forum_topic_id [Integer] The forum topic identifier of the last found topic, or 0 for the first
   #   request.
   # @param limit [Integer] The maximum number of forum topics to be returned; up to 100.
   #   For optimal performance, the number of returned forum topics is chosen by TDLib and can be smaller than the
   #   specified limit.
   # @return [TD::Types::ForumTopics]
-  def get_forum_topics(chat_id:, query:, offset_date:, offset_message_id:, offset_message_thread_id:, limit:)
-    broadcast('@type'                    => 'getForumTopics',
-              'chat_id'                  => chat_id,
-              'query'                    => query,
-              'offset_date'              => offset_date,
-              'offset_message_id'        => offset_message_id,
-              'offset_message_thread_id' => offset_message_thread_id,
-              'limit'                    => limit)
+  def get_forum_topics(chat_id:, query:, offset_date:, offset_message_id:, offset_forum_topic_id:, limit:)
+    broadcast('@type'                 => 'getForumTopics',
+              'chat_id'               => chat_id,
+              'query'                 => query,
+              'offset_date'           => offset_date,
+              'offset_message_id'     => offset_message_id,
+              'offset_forum_topic_id' => offset_forum_topic_id,
+              'limit'                 => limit)
   end
   
   # Returns the high scores for a game and some part of the high score table in the range of the specified user; for
@@ -6708,7 +6710,7 @@ module TD::ClientMethods
   #   enabled message database.
   # For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified
   #   limit.
-  # A combination of query, sender_id, filter and message_thread_id search criteria is expected to be supported, only
+  # A combination of query, sender_id, filter and topic_id search criteria is expected to be supported, only
   #   if it is required for Telegram official application implementation.
   #
   # @param chat_id [Integer] Identifier of the chat in which to search messages.
@@ -6727,23 +6729,18 @@ module TD::ClientMethods
   #   limit.
   # @param filter [TD::Types::SearchMessagesFilter] Additional filter for messages to search; pass null to search for
   #   all messages.
-  # @param message_thread_id [Integer] If not 0, only messages in the specified thread will be returned; supergroups
-  #   only.
-  # @param saved_messages_topic_id [Integer] If not 0, only messages in the specified Saved Messages topic will be
-  #   returned; pass 0 to return all messages, or for chats other than Saved Messages.
+  # @param topic_id [TD::Types::MessageTopic] Topic in which to search messages; pass null to search all topics.
   # @return [TD::Types::FoundChatMessages]
-  def search_chat_messages(chat_id:, query:, sender_id:, from_message_id:, offset:, limit:, filter:, message_thread_id:,
-                           saved_messages_topic_id:)
-    broadcast('@type'                   => 'searchChatMessages',
-              'chat_id'                 => chat_id,
-              'query'                   => query,
-              'sender_id'               => sender_id,
-              'from_message_id'         => from_message_id,
-              'offset'                  => offset,
-              'limit'                   => limit,
-              'filter'                  => filter,
-              'message_thread_id'       => message_thread_id,
-              'saved_messages_topic_id' => saved_messages_topic_id)
+  def search_chat_messages(chat_id:, topic_id:, query:, sender_id:, from_message_id:, offset:, limit:, filter:)
+    broadcast('@type'           => 'searchChatMessages',
+              'chat_id'         => chat_id,
+              'topic_id'        => topic_id,
+              'query'           => query,
+              'sender_id'       => sender_id,
+              'from_message_id' => from_message_id,
+              'offset'          => offset,
+              'limit'           => limit,
+              'filter'          => filter)
   end
   
   # Returns information about the recent locations of chat members that were sent to the chat.
@@ -7375,7 +7372,7 @@ module TD::ClientMethods
   # Returns the sent message.
   #
   # @param chat_id [Integer] Target chat.
-  # @param message_thread_id [Integer] If not 0, the message thread identifier in which the message will be sent.
+  # @param topic_id [TD::Types::MessageTopic] Topic in which the message will be sent; pass null if none.
   # @param reply_to [TD::Types::InputMessageReplyTo] Information about the message or story to be replied; pass null if
   #   none.
   # @param options [TD::Types::MessageSendOptions] Options to be used to send the message; pass null to use default
@@ -7383,10 +7380,10 @@ module TD::ClientMethods
   # @param reply_markup [TD::Types::ReplyMarkup] Markup for replying to the message; pass null if none; for bots only.
   # @param input_message_content [TD::Types::InputMessageContent] The content of the message to be sent.
   # @return [TD::Types::Message]
-  def send_message(chat_id:, message_thread_id:, reply_to:, options:, reply_markup:, input_message_content:)
+  def send_message(chat_id:, topic_id:, reply_to:, options:, reply_markup:, input_message_content:)
     broadcast('@type'                 => 'sendMessage',
               'chat_id'               => chat_id,
-              'message_thread_id'     => message_thread_id,
+              'topic_id'              => topic_id,
               'reply_to'              => reply_to,
               'options'               => options,
               'reply_markup'          => reply_markup,
@@ -7399,7 +7396,7 @@ module TD::ClientMethods
   # Returns sent messages.
   #
   # @param chat_id [Integer] Target chat.
-  # @param message_thread_id [Integer] If not 0, the message thread identifier in which the messages will be sent.
+  # @param topic_id [TD::Types::MessageTopic] Topic in which the messages will be sent; pass null if none.
   # @param reply_to [TD::Types::InputMessageReplyTo] Information about the message or story to be replied; pass null if
   #   none.
   # @param options [TD::Types::MessageSendOptions] Options to be used to send the messages; pass null to use default
@@ -7408,10 +7405,10 @@ module TD::ClientMethods
   #   At most 10 messages can be added to an album.
   #   All messages must have the same value of show_caption_above_media.
   # @return [TD::Types::Messages]
-  def send_message_album(chat_id:, message_thread_id:, reply_to:, options:, input_message_contents:)
+  def send_message_album(chat_id:, topic_id:, reply_to:, options:, input_message_contents:)
     broadcast('@type'                  => 'sendMessageAlbum',
               'chat_id'                => chat_id,
-              'message_thread_id'      => message_thread_id,
+              'topic_id'               => topic_id,
               'reply_to'               => reply_to,
               'options'                => options,
               'input_message_contents' => input_message_contents)
