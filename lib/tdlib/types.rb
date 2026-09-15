@@ -1795,17 +1795,17 @@ module TD::Types
             parts = klass.split('::')
             mod = TD::Types
             last = parts.pop
-            parts.each { |p| mod = mod.const_defined?(p) ? mod.const_get(p) : mod.const_set(p, Module.new) }
-            mod.const_set(last, Class.new(Base)) unless mod.const_defined?(last)
+            parts.each { |p| mod = mod.const_defined?(p, false) ? mod.const_get(p) : mod.const_set(p, Module.new) }
+            mod.const_set(last, ::Class.new(Base)) unless mod.const_defined?(last, false)
           else
-            const_set(klass, Class.new(Base)) unless const_defined?(klass)
+            const_set(klass, ::Class.new(Base)) unless const_defined?(klass, false)
           end
           const_get(klass).new(object)
         end
       else
         # Lenient: define unknown types on the fly using CamelCase of @type
         const_name = camelize(type)
-        TD::Types.const_set(const_name, Class.new(Base)) unless TD::Types.const_defined?(const_name)
+        TD::Types.const_set(const_name, ::Class.new(Base)) unless TD::Types.const_defined?(const_name, false)
         const_get(const_name).new(object)
       end
     else 

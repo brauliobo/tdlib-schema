@@ -7,5 +7,11 @@ RSpec.describe TD::Types do
     let(:data) { { '@type' => 'authorizationStateClosed' } }
 
     it { is_expected.to be_instance_of TD::Types::AuthorizationState::Closed }
+
+    context 'with a type unknown to the schema' do
+      let(:data) { { '@type' => 'alternativeVideo', 'codec' => 'h264' } }
+
+      it { is_expected.to be_a TD::Types::Base }
+    end
   end
 end
