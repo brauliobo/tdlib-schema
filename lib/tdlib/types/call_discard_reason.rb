@@ -7,6 +7,7 @@ module TD::Types
       declined
       disconnected
       hung_up
+      upgrade_to_group_call
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/call_discard_reason/#{type}"
     end

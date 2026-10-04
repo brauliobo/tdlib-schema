@@ -1,5 +1,5 @@
 module TD::Types
-  # Related articles.
+  # Related articles; instant view only.
   #
   # @attr header [TD::Types::RichText] Block header.
   # @attr articles [Array<TD::Types::PageBlockRelatedArticle>] List of related articles.

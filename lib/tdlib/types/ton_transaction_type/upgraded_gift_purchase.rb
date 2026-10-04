@@ -1,0 +1,10 @@
+module TD::Types
+  # The transaction is a purchase of an upgraded gift for some user or channel.
+  #
+  # @attr user_id [Integer] Identifier of the user who sold the gift.
+  # @attr gift [TD::Types::UpgradedGift] The gift.
+  class TonTransactionType::UpgradedGiftPurchase < TonTransactionType
+    attribute :user_id, TD::Types::Coercible::Integer
+    attribute :gift, TD::Types::UpgradedGift
+  end
+end

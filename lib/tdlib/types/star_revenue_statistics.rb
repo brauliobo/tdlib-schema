@@ -1,5 +1,5 @@
 module TD::Types
-  # A detailed statistics about Telegram Stars earned by a bot or a chat.
+  # A detailed statistics about Telegram Stars earned by a user or a chat.
   #
   # @attr revenue_by_day_graph [TD::Types::StatisticalGraph] A graph containing amount of revenue in a given day.
   # @attr status [TD::Types::StarRevenueStatus] Telegram Star revenue status.

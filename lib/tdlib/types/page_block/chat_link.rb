@@ -1,5 +1,5 @@
 module TD::Types
-  # A link to a chat.
+  # A link to a chat; instant view only.
   #
   # @attr title [TD::Types::String] Chat title.
   # @attr photo [TD::Types::ChatPhotoInfo, nil] Chat photo; may be null.

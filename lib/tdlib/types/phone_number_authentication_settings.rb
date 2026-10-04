@@ -16,7 +16,7 @@ module TD::Types
   #   applications only; pass null otherwise.
   #   Settings for Firebase Authentication.
   # @attr authentication_tokens [Array<TD::Types::String>] List of up to 20 authentication tokens, recently received in
-  #   updateOption("authentication_token") in previously logged out sessions.
+  #   updateOption("authentication_token") in previously logged out sessions; for setAuthenticationPhoneNumber only.
   class PhoneNumberAuthenticationSettings < Base
     attribute :allow_flash_call, TD::Types::Bool
     attribute :allow_missed_call, TD::Types::Bool

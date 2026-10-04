@@ -1,5 +1,5 @@
 module TD::Types
-  # Describes a user that sent a join request and waits for administrator approval.
+  # Describes a user who sent a join request and waits for administrator approval.
   #
   # @attr user_id [Integer] User identifier.
   # @attr date [Integer] Point in time (Unix timestamp) when the user sent the join request.

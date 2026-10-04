@@ -7,6 +7,7 @@ module TD::Types
       audio
       document
       photo
+      poll
       video
       voice_note
       photo_and_video
@@ -17,6 +18,7 @@ module TD::Types
       mention
       unread_mention
       unread_reaction
+      unread_poll_vote
       failed_to_send
       pinned
     ].each do |type|

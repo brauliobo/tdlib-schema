@@ -1,5 +1,5 @@
 module TD::Types
-  # The subtitle of a page.
+  # The subtitle of a page; instant view only.
   #
   # @attr subtitle [TD::Types::RichText] Subtitle.
   class PageBlock::Subtitle < PageBlock

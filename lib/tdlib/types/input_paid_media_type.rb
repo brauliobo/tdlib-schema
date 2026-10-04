@@ -1,5 +1,5 @@
 module TD::Types
-  # Describes type of paid media to sent.
+  # Describes type of paid media to send.
   class InputPaidMediaType < Base
     %w[
       photo

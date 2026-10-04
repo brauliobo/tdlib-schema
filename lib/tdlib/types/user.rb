@@ -10,35 +10,34 @@ module TD::Types
   # @attr profile_photo [TD::Types::ProfilePhoto, nil] Profile photo of the user; may be null.
   # @attr accent_color_id [Integer] Identifier of the accent color for name, and backgrounds of profile photo, reply
   #   header, and link preview.
-  #   For Telegram Premium users only.
   # @attr background_custom_emoji_id [Integer] Identifier of a custom emoji to be shown on the reply header and link
   #   preview background; 0 if none.
-  #   For Telegram Premium users only.
+  # @attr upgraded_gift_colors [TD::Types::UpgradedGiftColors, nil] Color scheme based on an upgraded gift to be used
+  #   for the user instead of accent_color_id and background_custom_emoji_id; may be null if none.
   # @attr profile_accent_color_id [Integer] Identifier of the accent color for the user's profile; -1 if none.
-  #   For Telegram Premium users only.
   # @attr profile_background_custom_emoji_id [Integer] Identifier of a custom emoji to be shown on the background of
   #   the user's profile; 0 if none.
-  #   For Telegram Premium users only.
   # @attr emoji_status [TD::Types::EmojiStatus, nil] Emoji status to be shown instead of the default Telegram Premium
   #   badge; may be null.
-  #   For Telegram Premium users only.
   # @attr is_contact [Boolean] The user is a contact of the current user.
   # @attr is_mutual_contact [Boolean] The user is a contact of the current user and the current user is a contact of
   #   the user.
   # @attr is_close_friend [Boolean] The user is a close friend of the current user; implies that the user is a contact.
-  # @attr is_verified [Boolean] True, if the user is verified.
+  # @attr verification_status [TD::Types::VerificationStatus, nil] Information about verification status of the user;
+  #   may be null if none.
   # @attr is_premium [Boolean] True, if the user is a Telegram Premium user.
   # @attr is_support [Boolean] True, if the user is Telegram support account.
-  # @attr restriction_reason [TD::Types::String] If non-empty, it contains a human-readable description of the reason
-  #   why access to this user must be restricted.
-  # @attr is_scam [Boolean] True, if many users reported this user as a scam.
-  # @attr is_fake [Boolean] True, if many users reported this user as a fake account.
-  # @attr has_active_stories [Boolean] True, if the user has non-expired stories available to the current user.
-  # @attr has_unread_active_stories [Boolean] True, if the user has unread non-expired stories available to the current
-  #   user.
+  # @attr restriction_info [TD::Types::RestrictionInfo, nil] Information about restrictions that must be applied to the
+  #   corresponding private chat; may be null if none.
+  # @attr active_story_state [TD::Types::ActiveStoryState, nil] State of active stories of the user; may be null if the
+  #   user has no active stories.
   # @attr restricts_new_chats [Boolean] True, if the user may restrict new chats with non-contacts.
   #   Use canSendMessageToUser to check whether the current user can message the user or try to create a chat with
   #   them.
+  # @attr paid_message_star_count [Integer] Number of Telegram Stars that must be paid by general user for each sent
+  #   message to the user.
+  #   If positive and {TD::Types::UserFullInfo} is unknown, use canSendMessageToUser to check whether the current user
+  #   must pay.
   # @attr have_access [Boolean] If false, the user is inaccessible, and the only information known about the user is
   #   inside this class.
   #   Identifier of the user can't be passed to any method.
@@ -56,21 +55,20 @@ module TD::Types
     attribute :profile_photo, TD::Types::ProfilePhoto.optional.default(nil)
     attribute :accent_color_id, TD::Types::Coercible::Integer.default(0)
     attribute :background_custom_emoji_id, TD::Types::Coercible::Integer.default(0)
+    attribute :upgraded_gift_colors, TD::Types::UpgradedGiftColors.optional.default(nil)
     attribute :profile_accent_color_id, TD::Types::Coercible::Integer.default(0)
     attribute :profile_background_custom_emoji_id, TD::Types::Coercible::Integer.default(0)
     attribute :emoji_status, TD::Types::EmojiStatus.optional.default(nil)
     attribute :is_contact, TD::Types::Bool.default(false)
     attribute :is_mutual_contact, TD::Types::Bool.default(false)
     attribute :is_close_friend, TD::Types::Bool.default(false)
-    attribute :is_verified, TD::Types::Bool.default(false)
+    attribute :verification_status, TD::Types::VerificationStatus.optional.default(nil)
     attribute :is_premium, TD::Types::Bool.default(false)
     attribute :is_support, TD::Types::Bool.default(false)
-    attribute :restriction_reason, TD::Types::String.constructor { |v| v.nil? ? '' : v }
-    attribute :is_scam, TD::Types::Bool.default(false)
-    attribute :is_fake, TD::Types::Bool.default(false)
-    attribute :has_active_stories, TD::Types::Bool.default(false)
-    attribute :has_unread_active_stories, TD::Types::Bool.default(false)
+    attribute :restriction_info, TD::Types::RestrictionInfo.optional.default(nil)
+    attribute :active_story_state, TD::Types::ActiveStoryState.optional.default(nil)
     attribute :restricts_new_chats, TD::Types::Bool.default(false)
+    attribute :paid_message_star_count, TD::Types::Coercible::Integer
     attribute :have_access, TD::Types::Bool.default(false)
     attribute :type, TD::Types::UserType
     attribute :language_code, TD::Types::String

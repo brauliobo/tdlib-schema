@@ -3,9 +3,10 @@ module TD::Types
   class StorePaymentPurpose < Base
     %w[
       premium_subscription
-      gifted_premium
+      premium_gift
       premium_gift_codes
       premium_giveaway
+      star_giveaway
       stars
       gifted_stars
     ].each do |type|

@@ -3,9 +3,10 @@ module TD::Types
   #
   # @attr url [TD::Types::String] Original URL of the link.
   # @attr display_url [TD::Types::String] URL to display.
-  # @attr site_name [TD::Types::String] Short name of the site (e.g., Google Docs, App Store).
+  # @attr site_name [TD::Types::String] Short name of the website (e.g., Google Docs, App Store).
   # @attr title [TD::Types::String] Title of the content.
   # @attr description [TD::Types::FormattedText] Description of the content.
+  # @attr author [TD::Types::String] Author of the content.
   # @attr type [TD::Types::LinkPreviewType] Type of the link preview.
   # @attr has_large_media [Boolean] True, if size of media in the preview can be changed.
   # @attr show_large_media [Boolean] True, if large media preview must be shown; otherwise, the media preview must be
@@ -24,6 +25,7 @@ module TD::Types
     attribute :site_name, TD::Types::String
     attribute :title, TD::Types::String
     attribute :description, TD::Types::FormattedText
+    attribute :author, TD::Types::String
     attribute :type, TD::Types::LinkPreviewType
     attribute :has_large_media, TD::Types::Bool
     attribute :show_large_media, TD::Types::Bool

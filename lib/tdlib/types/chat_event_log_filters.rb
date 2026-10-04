@@ -10,11 +10,13 @@ module TD::Types
   # @attr member_promotions [Boolean] True, if member promotion/demotion events need to be returned.
   # @attr member_restrictions [Boolean] True, if member restricted/unrestricted/banned/unbanned events need to be
   #   returned.
+  # @attr member_tag_changes [Boolean] True, if member tag and custom title change events need to be returned.
   # @attr info_changes [Boolean] True, if changes in chat information need to be returned.
   # @attr setting_changes [Boolean] True, if changes in chat settings need to be returned.
   # @attr invite_link_changes [Boolean] True, if changes to invite links need to be returned.
   # @attr video_chat_changes [Boolean] True, if video chat actions need to be returned.
   # @attr forum_changes [Boolean] True, if forum-related actions need to be returned.
+  # @attr subscription_extensions [Boolean] True, if subscription extensions need to be returned.
   class ChatEventLogFilters < Base
     attribute :message_edits, TD::Types::Bool
     attribute :message_deletions, TD::Types::Bool
@@ -24,10 +26,12 @@ module TD::Types
     attribute :member_invites, TD::Types::Bool
     attribute :member_promotions, TD::Types::Bool
     attribute :member_restrictions, TD::Types::Bool
+    attribute :member_tag_changes, TD::Types::Bool
     attribute :info_changes, TD::Types::Bool
     attribute :setting_changes, TD::Types::Bool
     attribute :invite_link_changes, TD::Types::Bool
     attribute :video_chat_changes, TD::Types::Bool
     attribute :forum_changes, TD::Types::Bool
+    attribute :subscription_extensions, TD::Types::Bool
   end
 end

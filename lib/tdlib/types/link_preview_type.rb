@@ -10,21 +10,32 @@ module TD::Types
       background
       channel_boost
       chat
+      direct_messages_chat
       document
       embedded_animation_player
       embedded_audio_player
       embedded_video_player
+      external_audio
+      external_video
+      gift_auction
+      gift_collection
+      group_call
       invoice
+      live_story
       message
       photo
       premium_gift_code
+      request_managed_bot
       shareable_chat_folder
       sticker
       sticker_set
       story
+      story_album
       supergroup_boost
+      text_composition_style
       theme
       unsupported
+      upgraded_gift
       user
       video
       video_chat

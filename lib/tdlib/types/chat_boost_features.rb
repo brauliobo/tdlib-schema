@@ -12,6 +12,8 @@ module TD::Types
   # @attr min_custom_background_boost_level [Integer] The minimum boost level required to set custom chat background.
   # @attr min_custom_emoji_sticker_set_boost_level [Integer] The minimum boost level required to set custom emoji
   #   sticker set for the chat; for supergroup chats only.
+  # @attr min_automatic_translation_boost_level [Integer] The minimum boost level allowing to enable automatic
+  #   translation of messages for non-Premium users; for channel chats only.
   # @attr min_speech_recognition_boost_level [Integer] The minimum boost level allowing to recognize speech in video
   #   note and voice note messages for non-Premium users; for supergroup chats only.
   # @attr min_sponsored_message_disable_boost_level [Integer] The minimum boost level allowing to disable sponsored
@@ -24,6 +26,7 @@ module TD::Types
     attribute :min_chat_theme_background_boost_level, TD::Types::Coercible::Integer
     attribute :min_custom_background_boost_level, TD::Types::Coercible::Integer
     attribute :min_custom_emoji_sticker_set_boost_level, TD::Types::Coercible::Integer
+    attribute :min_automatic_translation_boost_level, TD::Types::Coercible::Integer
     attribute :min_speech_recognition_boost_level, TD::Types::Coercible::Integer
     attribute :min_sponsored_message_disable_boost_level, TD::Types::Coercible::Integer
   end

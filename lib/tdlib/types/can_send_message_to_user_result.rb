@@ -3,6 +3,7 @@ module TD::Types
   class CanSendMessageToUserResult < Base
     %w[
       ok
+      user_has_paid_messages
       user_is_deleted
       user_restricts_new_chats
     ].each do |type|

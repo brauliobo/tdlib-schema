@@ -4,11 +4,13 @@ module TD::Types
     %w[
       allow_all
       allow_contacts
+      allow_bots
       allow_premium_users
       allow_users
       allow_chat_members
       restrict_all
       restrict_contacts
+      restrict_bots
       restrict_users
       restrict_chat_members
     ].each do |type|

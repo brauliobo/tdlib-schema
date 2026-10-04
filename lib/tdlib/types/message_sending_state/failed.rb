@@ -9,6 +9,8 @@ module TD::Types
   #   message that is replied by the given message.
   # @attr need_drop_reply [Boolean] True, if the message can be re-sent only if the message to be replied is removed.
   #   This will be done automatically by resendMessages.
+  # @attr required_paid_message_star_count [Integer] The number of Telegram Stars that must be paid to send the
+  #   message; 0 if the current amount is correct.
   # @attr retry_after [Float] Time left before the message can be re-sent, in seconds.
   #   No update is sent when this field changes.
   class MessageSendingState::Failed < MessageSendingState
@@ -17,6 +19,7 @@ module TD::Types
     attribute :need_another_sender, TD::Types::Bool
     attribute :need_another_reply_quote, TD::Types::Bool
     attribute :need_drop_reply, TD::Types::Bool
+    attribute :required_paid_message_star_count, TD::Types::Coercible::Integer
     attribute :retry_after, TD::Types::Coercible::Float
   end
 end

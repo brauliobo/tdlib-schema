@@ -1,5 +1,5 @@
 module TD::Types
-  # A small image inside the text.
+  # A small image inside the text; instant view only.
   #
   # @attr document [TD::Types::Document] The image represented as a document.
   #   The image can be in GIF, JPEG or PNG format.

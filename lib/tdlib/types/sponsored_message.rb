@@ -8,7 +8,9 @@ module TD::Types
   #   reportChatSponsoredMessage.
   # @attr content [TD::Types::MessageContent] Content of the message.
   #   Currently, can be only of the types messageText, messageAnimation, messagePhoto, or messageVideo.
-  # @attr sponsor [TD::Types::MessageSponsor] Information about the sponsor of the message.
+  #   Video messages can be viewed fullscreen.
+  #   The content must be fully downloaded before the message is shown.
+  # @attr sponsor [TD::Types::AdvertisementSponsor] Information about the sponsor of the message.
   # @attr title [TD::Types::String] Title of the sponsored message.
   # @attr button_text [TD::Types::String] Text for the message action button.
   # @attr accent_color_id [Integer] Identifier of the accent color for title, button text and message background.
@@ -21,7 +23,7 @@ module TD::Types
     attribute :is_recommended, TD::Types::Bool
     attribute :can_be_reported, TD::Types::Bool
     attribute :content, TD::Types::MessageContent
-    attribute :sponsor, TD::Types::MessageSponsor
+    attribute :sponsor, TD::Types::AdvertisementSponsor
     attribute :title, TD::Types::String
     attribute :button_text, TD::Types::String
     attribute :accent_color_id, TD::Types::Coercible::Integer

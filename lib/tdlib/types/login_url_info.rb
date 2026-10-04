@@ -1,5 +1,5 @@
 module TD::Types
-  # Contains information about an inline button of type inlineKeyboardButtonTypeLoginUrl.
+  # Contains information about an inline button of type inlineKeyboardButtonTypeLoginUrl or an external link.
   class LoginUrlInfo < Base
     %w[
       open

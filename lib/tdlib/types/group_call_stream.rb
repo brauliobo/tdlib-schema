@@ -1,5 +1,5 @@
 module TD::Types
-  # Describes an available stream in a group call.
+  # Describes an available stream in a video chat or a live story.
   #
   # @attr channel_id [Integer] Identifier of an audio/video channel.
   # @attr scale [Integer] Scale of segment durations in the stream.

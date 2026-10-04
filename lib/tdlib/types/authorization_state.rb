@@ -4,6 +4,7 @@ module TD::Types
     %w[
       wait_tdlib_parameters
       wait_phone_number
+      wait_premium_purchase
       wait_email_address
       wait_email_code
       wait_code

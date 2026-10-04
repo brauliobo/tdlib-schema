@@ -1,5 +1,5 @@
 module TD::Types
-  # The content of a story to send.
+  # The content of a story to post.
   class InputStoryContent < Base
     %w[
       photo

@@ -5,6 +5,7 @@ module TD::Types
       message
       external_message
       story
+      ephemeral_message
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/input_message_reply_to/#{type}"
     end

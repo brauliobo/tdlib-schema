@@ -1,5 +1,5 @@
 module TD::Types
-  # Describes a user that had or will have a birthday soon.
+  # Describes a user who had or will have a birthday soon.
   #
   # @attr user_id [Integer] User identifier.
   # @attr birthdate [TD::Types::Birthdate] Birthdate of the user.

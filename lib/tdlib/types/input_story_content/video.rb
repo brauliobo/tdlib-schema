@@ -3,8 +3,8 @@ module TD::Types
   #
   # @attr video [TD::Types::InputFile] Video to be sent.
   #   The video size must be 720x1280.
-  #   The video must be streamable and stored in MPEG4 format, after encoding with x265 codec and key frames added each
-  #   second.
+  #   The video must be streamable and stored in MPEG4 format, after encoding with H.265 codec and key frames added
+  #   each second.
   # @attr added_sticker_file_ids [Array<Integer>] File identifiers of the stickers added to the video, if applicable.
   # @attr duration [Float] Precise duration of the video, in seconds; 0-60.
   # @attr cover_frame_timestamp [Float] Timestamp of the frame, which will be used as video thumbnail.

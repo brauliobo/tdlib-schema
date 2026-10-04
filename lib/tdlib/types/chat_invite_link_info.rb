@@ -16,9 +16,8 @@ module TD::Types
   # @attr creates_join_request [Boolean] True, if the link only creates join request.
   # @attr is_public [Boolean] True, if the chat is a public supergroup or channel, i.e.
   #   it has a username or it is a location-based supergroup.
-  # @attr is_verified [Boolean] True, if the chat is verified.
-  # @attr is_scam [Boolean] True, if many users reported this chat as a scam.
-  # @attr is_fake [Boolean] True, if many users reported this chat as a fake account.
+  # @attr verification_status [TD::Types::VerificationStatus, nil] Information about verification status of the chat;
+  #   may be null if none.
   class ChatInviteLinkInfo < Base
     attribute :chat_id, TD::Types::Coercible::Integer
     attribute :accessible_for, TD::Types::Coercible::Integer
@@ -32,8 +31,6 @@ module TD::Types
     attribute :subscription_info, TD::Types::ChatInviteLinkSubscriptionInfo.optional.default(nil)
     attribute :creates_join_request, TD::Types::Bool
     attribute :is_public, TD::Types::Bool
-    attribute :is_verified, TD::Types::Bool
-    attribute :is_scam, TD::Types::Bool
-    attribute :is_fake, TD::Types::Bool
+    attribute :verification_status, TD::Types::VerificationStatus.optional.default(nil)
   end
 end

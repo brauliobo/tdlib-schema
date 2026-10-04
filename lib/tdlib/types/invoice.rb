@@ -4,6 +4,8 @@ module TD::Types
   # @attr currency [TD::Types::String] ISO 4217 currency code.
   # @attr price_parts [Array<TD::Types::LabeledPricePart>] A list of objects used to calculate the total price of the
   #   product.
+  # @attr subscription_period [Integer] The number of seconds between consecutive Telegram Star debiting for
+  #   subscription invoices; 0 if the invoice doesn't create subscription.
   # @attr max_tip_amount [Integer] The maximum allowed amount of tip in the smallest units of the currency.
   # @attr suggested_tip_amounts [Array<Integer>] Suggested amounts of tip in the smallest units of the currency.
   # @attr recurring_payment_terms_of_service_url [TD::Types::String] An HTTP URL with terms of service for recurring
@@ -23,6 +25,7 @@ module TD::Types
   class Invoice < Base
     attribute :currency, TD::Types::String
     attribute :price_parts, TD::Types::Array.of(TD::Types::LabeledPricePart)
+    attribute :subscription_period, TD::Types::Coercible::Integer
     attribute :max_tip_amount, TD::Types::Coercible::Integer
     attribute :suggested_tip_amounts, TD::Types::Array.of(TD::Types::Coercible::Integer)
     attribute :recurring_payment_terms_of_service_url, TD::Types::String

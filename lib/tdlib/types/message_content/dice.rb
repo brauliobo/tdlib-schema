@@ -10,7 +10,7 @@ module TD::Types
   #   The update {TD::Types::Update::MessageContent} will be sent when the sticker became known.
   # @attr emoji [TD::Types::String] Emoji on which the dice throw animation is based.
   # @attr value [Integer] The dice value.
-  #   If the value is 0, the dice don't have final state yet.
+  #   If the value is 0, then the dice don't have final state yet.
   # @attr success_animation_frame_number [Integer] Number of frame after which a success animation like a shower of
   #   confetti needs to be shown on updateMessageSendSucceeded.
   class MessageContent::Dice < MessageContent

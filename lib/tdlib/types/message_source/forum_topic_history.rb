@@ -1,5 +1,5 @@
 module TD::Types
-  # The message is from a forum topic history.
+  # The message is from history of a forum topic.
   class MessageSource::ForumTopicHistory < MessageSource
   end
 end

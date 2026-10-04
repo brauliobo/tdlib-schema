@@ -1,9 +1,9 @@
 module TD::Types
   # A theme in the chat has been changed.
   #
-  # @attr theme_name [TD::Types::String] If non-empty, name of a new theme, set for the chat.
-  #   Otherwise, chat theme was reset to the default one.
+  # @attr theme [TD::Types::ChatTheme, nil] New theme for the chat; may be null if chat theme was reset to the default
+  #   one.
   class MessageContent::ChatSetTheme < MessageContent
-    attribute :theme_name, TD::Types::String
+    attribute :theme, TD::Types::ChatTheme.optional.default(nil)
   end
 end

@@ -2,7 +2,6 @@ module TD::Types
   # Describes an internal https://t.me or tg: link, which must be processed by the application in a special way.
   class InternalLinkType < Base
     %w[
-      active_sessions
       attachment_menu_bot
       authentication_code
       background
@@ -10,39 +9,52 @@ module TD::Types
       bot_start
       bot_start_in_group
       business_chat
-      buy_stars
-      change_phone_number
+      calls_page
+      chat_affiliate_program
       chat_boost
       chat_folder_invite
-      chat_folder_settings
       chat_invite
-      default_message_auto_delete_timer_settings
-      edit_profile_settings
+      chat_selection
+      contacts_page
+      direct_messages_chat
       game
+      gift_auction
+      gift_collection
+      group_call
       instant_view
       invoice
       language_pack
-      language_settings
+      live_story
       main_web_app
       message
       message_draft
+      my_profile_page
+      new_channel_chat
+      new_group_chat
+      new_private_chat
+      new_story
+      oauth
       passport_data_request
       phone_number_confirmation
-      premium_features
-      premium_gift
+      premium_features_page
       premium_gift_code
-      privacy_and_security_settings
+      premium_gift_purchase
       proxy
       public_chat
       qr_code_authentication
+      request_managed_bot
       restore_purchases
+      saved_messages
+      search
       settings
+      star_purchase
       sticker_set
       story
+      story_album
+      text_composition_style
       theme
-      theme_settings
       unknown_deep_link
-      unsupported_proxy
+      upgraded_gift
       user_phone_number
       user_token
       video_chat

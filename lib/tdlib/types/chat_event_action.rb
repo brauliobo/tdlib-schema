@@ -14,6 +14,8 @@ module TD::Types
       member_left
       member_promoted
       member_restricted
+      member_tag_changed
+      member_subscription_extended
       available_reactions_changed
       background_changed
       description_changed
@@ -37,6 +39,7 @@ module TD::Types
       has_aggressive_anti_spam_enabled_toggled
       sign_messages_toggled
       show_message_sender_toggled
+      automatic_translation_toggled
       invite_link_edited
       invite_link_revoked
       invite_link_deleted

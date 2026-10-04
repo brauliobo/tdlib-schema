@@ -1,5 +1,5 @@
 module TD::Types
-  # The title of a page.
+  # The title of a page; instant view only.
   #
   # @attr title [TD::Types::RichText] Title.
   class PageBlock::Title < PageBlock

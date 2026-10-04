@@ -36,7 +36,7 @@ RSpec.describe 'TDLib forum topics' do
   end
 
   it 'serializes a forum topic identifier for sendMessage' do
-    topic = TD::Types::MessageTopicForum.new(forum_topic_id: 42)
+    topic = TD::Types::MessageTopic::Forum.new(forum_topic_id: 42)
 
     client.send_message(
       chat_id: -100123, topic_id: topic, reply_to: nil, options: nil,

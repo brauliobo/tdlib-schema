@@ -8,14 +8,18 @@ module TD::Types
       message_send_succeeded
       message_send_failed
       message_content
+      message_ephemeral_content
       message_edited
       message_is_pinned
       message_interaction_info
       message_content_opened
       message_mention_read
       message_unread_reactions
+      message_contains_unread_poll_votes
       message_fact_check
+      message_suggested_post_info
       message_live_location_viewed
+      video_published
       new_chat
       chat_title
       chat_photo
@@ -41,6 +45,7 @@ module TD::Types
       chat_theme
       chat_unread_mention_count
       chat_unread_reaction_count
+      chat_unread_poll_vote_count
       chat_video_chat
       chat_default_disable_notification
       chat_has_protected_content
@@ -49,15 +54,20 @@ module TD::Types
       chat_view_as_topics
       chat_block_list
       chat_has_scheduled_messages
+      chat_has_welcome_messages
       chat_folders
       chat_online_member_count
       saved_messages_topic
       saved_messages_topic_count
+      direct_messages_chat_topic
+      topic_message_count
       quick_reply_shortcut
       quick_reply_shortcut_deleted
       quick_reply_shortcuts
       quick_reply_shortcut_messages
+      chat_welcome_messages
       forum_topic_info
+      forum_topic
       scope_notification_settings
       reaction_notification_settings
       notification
@@ -66,6 +76,9 @@ module TD::Types
       have_pending_notifications
       delete_messages
       chat_action
+      pending_message
+      stop_message_draft
+      community
       user_status
       user
       basic_group
@@ -74,7 +87,9 @@ module TD::Types
       user_full_info
       basic_group_full_info
       supergroup_full_info
+      community_full_info
       service_notification
+      new_oauth_request
       file
       file_generation_start
       file_generation_stop
@@ -83,20 +98,32 @@ module TD::Types
       file_download
       file_removed_from_downloads
       application_verification_required
+      application_recaptcha_verification_required
       call
       group_call
       group_call_participant
+      group_call_participants
+      group_call_verification_state
+      new_group_call_message
+      new_group_call_paid_reaction
+      group_call_message_send_failed
+      group_call_messages_deleted
+      live_story_top_donors
       new_call_signaling_data
+      gift_auction_state
+      active_gift_auctions
       user_privacy_setting_rules
       unread_message_count
       unread_chat_count
+      chat_join_result
       story
       story_deleted
-      story_send_succeeded
-      story_send_failed
+      story_post_succeeded
+      story_post_failed
       chat_active_stories
       story_list_chat_count
       story_stealth_mode
+      trusted_mini_app_bots
       option
       sticker_set
       installed_sticker_sets
@@ -106,28 +133,36 @@ module TD::Types
       saved_animations
       saved_notification_sounds
       default_background
-      chat_themes
+      emoji_chat_themes
       accent_colors
       profile_accent_colors
+      web_browser_settings
       language_pack_strings
       connection_state
+      freeze_state
+      age_verification_parameters
       terms_of_service
-      users_nearby
       unconfirmed_session
       attachment_menu_bots
       web_app_message_sent
       active_emoji_reactions
       available_message_effects
       default_reaction_type
+      default_paid_reaction_type
       saved_messages_tags
       active_live_location_messages
       owned_star_count
+      owned_gram_count
       chat_revenue_amount
       star_revenue_status
+      gram_revenue_status
       speech_recognition_trial
+      group_call_message_levels
       dice_emojis
+      stake_dice_state
       animated_emoji_message_clicked
       animation_search_parameters
+      text_composition_styles
       suggested_actions
       speed_limit_notification
       contact_close_birthdays
@@ -138,6 +173,7 @@ module TD::Types
       business_messages_deleted
       new_inline_query
       new_chosen_inline_result
+      new_guest_query
       new_callback_query
       new_inline_callback_query
       new_business_callback_query
@@ -145,13 +181,16 @@ module TD::Types
       new_pre_checkout_query
       new_custom_event
       new_custom_query
+      user_subscription
       poll
       poll_answer
+      managed_bot
       chat_member
       new_chat_join_request
       chat_boost
       message_reaction
       message_reactions
+      paid_media_purchased
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/update/#{type}"
     end

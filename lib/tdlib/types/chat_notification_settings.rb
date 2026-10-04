@@ -17,9 +17,9 @@ module TD::Types
   #   story_sound_id.
   # @attr story_sound_id [Integer] Identifier of the notification sound to be played for stories; 0 if sound is
   #   disabled.
-  # @attr use_default_show_story_sender [Boolean] If true, the value for the relevant type of chat is used instead of
-  #   show_story_sender.
-  # @attr show_story_sender [Boolean] True, if the sender of stories must be displayed in notifications.
+  # @attr use_default_show_story_poster [Boolean] If true, the value for the relevant type of chat is used instead of
+  #   show_story_poster.
+  # @attr show_story_poster [Boolean] True, if the chat that posted a story must be displayed in notifications.
   # @attr use_default_disable_pinned_message_notifications [Boolean] If true, the value for the relevant type of chat
   #   or the forum chat is used instead of disable_pinned_message_notifications.
   # @attr disable_pinned_message_notifications [Boolean] If true, notifications for incoming pinned messages will be
@@ -39,8 +39,8 @@ module TD::Types
     attribute :mute_stories, TD::Types::Bool
     attribute :use_default_story_sound, TD::Types::Bool
     attribute :story_sound_id, TD::Types::Coercible::Integer
-    attribute :use_default_show_story_sender, TD::Types::Bool.default(false)
-    attribute :show_story_sender, TD::Types::Bool.default(false)
+    attribute :use_default_show_story_poster, TD::Types::Bool
+    attribute :show_story_poster, TD::Types::Bool
     attribute :use_default_disable_pinned_message_notifications, TD::Types::Bool
     attribute :disable_pinned_message_notifications, TD::Types::Bool
     attribute :use_default_disable_mention_notifications, TD::Types::Bool

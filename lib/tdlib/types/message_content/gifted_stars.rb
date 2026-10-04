@@ -1,9 +1,9 @@
 module TD::Types
   # Telegram Stars were gifted to a user.
   #
-  # @attr gifter_user_id [Integer] The identifier of a user that gifted Telegram Stars; 0 if the gift was anonymous or
+  # @attr gifter_user_id [Integer] The identifier of a user who gifted Telegram Stars; 0 if the gift was anonymous or
   #   is outgoing.
-  # @attr receiver_user_id [Integer] The identifier of a user that received Telegram Stars; 0 if the gift is incoming.
+  # @attr receiver_user_id [Integer] The identifier of a user who received Telegram Stars; 0 if the gift is incoming.
   # @attr currency [TD::Types::String] Currency for the paid amount.
   # @attr amount [Integer] The paid amount, in the smallest units of the currency.
   # @attr cryptocurrency [TD::Types::String, nil] Cryptocurrency used to pay for the gift; may be empty if none.

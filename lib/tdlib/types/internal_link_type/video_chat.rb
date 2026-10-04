@@ -1,6 +1,6 @@
 module TD::Types
   # The link is a link to a video chat.
-  # Call searchPublicChat with the given chat username, and then joinGroupCall with the given invite hash to process
+  # Call searchPublicChat with the given chat username, and then joinVideoChat with the given invite hash to process
   #   the link.
   #
   # @attr chat_username [TD::Types::String] Username of the chat with the video chat.

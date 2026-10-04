@@ -16,6 +16,8 @@ module TD::Types
   # @attr chat_theme_background_count [Integer] Number of chat theme backgrounds that can be set as chat background.
   # @attr can_set_custom_background [Boolean] True, if custom background can be set in the chat for all users.
   # @attr can_set_custom_emoji_sticker_set [Boolean] True, if custom emoji sticker set can be set for the chat.
+  # @attr can_enable_automatic_translation [Boolean] True, if automatic translation of messages can be enabled in the
+  #   chat.
   # @attr can_recognize_speech [Boolean] True, if speech recognition can be used for video note and voice note messages
   #   by all users.
   # @attr can_disable_sponsored_messages [Boolean] True, if sponsored messages can be disabled in the chat.
@@ -32,6 +34,7 @@ module TD::Types
     attribute :chat_theme_background_count, TD::Types::Coercible::Integer
     attribute :can_set_custom_background, TD::Types::Bool
     attribute :can_set_custom_emoji_sticker_set, TD::Types::Bool
+    attribute :can_enable_automatic_translation, TD::Types::Bool
     attribute :can_recognize_speech, TD::Types::Bool
     attribute :can_disable_sponsored_messages, TD::Types::Bool
   end

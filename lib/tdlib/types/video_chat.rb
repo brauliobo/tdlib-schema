@@ -1,5 +1,6 @@
 module TD::Types
-  # Describes a video chat.
+  # Describes a video chat, i.e.
+  # a group call bound to a chat.
   #
   # @attr group_call_id [Integer] Group call identifier of an active video chat; 0 if none.
   #   Full information about the video chat can be received through the method getGroupCall.

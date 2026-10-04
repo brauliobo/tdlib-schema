@@ -1,5 +1,5 @@
 module TD::Types
-  # A subheader.
+  # A subheader; instant view only.
   #
   # @attr subheader [TD::Types::RichText] Subheader.
   class PageBlock::Subheader < PageBlock

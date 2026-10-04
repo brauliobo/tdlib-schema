@@ -1,5 +1,5 @@
 module TD::Types
-  # A header.
+  # A header; instant view only.
   #
   # @attr header [TD::Types::RichText] Header.
   class PageBlock::Header < PageBlock

@@ -1,5 +1,5 @@
 module TD::Types
-  # Contains statistics about interactions with a message sent in the chat or a story sent by the chat.
+  # Contains statistics about interactions with a message sent in the chat or a story posted on behalf of the chat.
   #
   # @attr object_type [TD::Types::ChatStatisticsObjectType] Type of the object.
   # @attr view_count [Integer] Number of times the object was viewed.

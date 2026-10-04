@@ -16,15 +16,21 @@ module TD::Types
       photo
       poll
       premium_gift_code
-      premium_giveaway
+      giveaway
+      gift
+      upgraded_gift
       screenshot_taken
       sticker
       story
       text
+      checklist
       video
       video_note
       voice_note
       basic_group_chat_create
+      video_chat_started
+      video_chat_ended
+      invite_video_chat_participants
       chat_add_members
       chat_change_photo
       chat_change_title
@@ -35,6 +41,11 @@ module TD::Types
       chat_join_by_request
       recurring_payment
       suggest_profile_photo
+      suggest_birthdate
+      proximity_alert_triggered
+      checklist_tasks_added
+      checklist_tasks_done
+      poll_option_added
       message_forwards
       media_album
     ].each do |type|

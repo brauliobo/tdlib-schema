@@ -4,6 +4,7 @@ module TD::Types
     %w[
       anonymous_administrator
       guest
+      restricted
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/reaction_unavailability_reason/#{type}"
     end

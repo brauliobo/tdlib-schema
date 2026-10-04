@@ -1,12 +1,12 @@
 module TD::Types
-  # An embedded web page.
+  # An embedded web page; instant view only.
   #
   # @attr url [TD::Types::String, nil] URL of the embedded page, if available.
   # @attr html [TD::Types::String] HTML-markup of the embedded page.
   # @attr poster_photo [TD::Types::Photo, nil] Poster photo, if available; may be null.
   # @attr width [Integer] Block width; 0 if unknown.
   # @attr height [Integer] Block height; 0 if unknown.
-  # @attr caption [TD::Types::PageBlockCaption] Block caption.
+  # @attr caption [TD::Types::PageBlockCaption, nil] Block caption; may be null if none.
   # @attr is_full_width [Boolean] True, if the block must be full width.
   # @attr allow_scrolling [Boolean] True, if scrolling needs to be allowed.
   class PageBlock::Embedded < PageBlock
@@ -15,7 +15,7 @@ module TD::Types
     attribute :poster_photo, TD::Types::Photo.optional.default(nil)
     attribute :width, TD::Types::Coercible::Integer
     attribute :height, TD::Types::Coercible::Integer
-    attribute :caption, TD::Types::PageBlockCaption
+    attribute :caption, TD::Types::PageBlockCaption.optional.default(nil)
     attribute :is_full_width, TD::Types::Bool
     attribute :allow_scrolling, TD::Types::Bool
   end

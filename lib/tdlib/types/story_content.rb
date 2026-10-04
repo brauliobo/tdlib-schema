@@ -4,6 +4,7 @@ module TD::Types
     %w[
       photo
       video
+      live
       unsupported
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/story_content/#{type}"

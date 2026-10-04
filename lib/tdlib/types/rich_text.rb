@@ -7,15 +7,28 @@ module TD::Types
       italic
       underline
       strikethrough
-      fixed
-      url
-      email_address
+      spoiler
       subscript
       superscript
       marked
+      date_time
+      mention
+      hashtag
+      cashtag
+      bank_card_number
+      bot_command
+      fixed
+      mention_name
+      url
+      email_address
       phone_number
+      custom_emoji
       icon
+      mathematical_expression
+      button
+      diff
       reference
+      reference_link
       anchor
       anchor_link
       s

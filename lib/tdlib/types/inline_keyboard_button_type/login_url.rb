@@ -1,5 +1,6 @@
 module TD::Types
-  # A button that opens a specified URL and automatically authorize the current user by calling getLoginUrlInfo.
+  # A button that opens a specified URL and automatically authorize the current user by calling getLoginUrlInfo; not
+  #   supported in ephemeral messages.
   #
   # @attr url [TD::Types::String] An HTTP URL to pass to getLoginUrlInfo.
   # @attr id [Integer] Unique button identifier.

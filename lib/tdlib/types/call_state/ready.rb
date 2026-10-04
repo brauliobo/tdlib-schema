@@ -7,6 +7,7 @@ module TD::Types
   # @attr encryption_key [String] Call encryption key.
   # @attr emojis [Array<TD::Types::String>] Encryption key fingerprint represented as 4 emoji.
   # @attr allow_p2p [Boolean] True, if peer-to-peer connection is allowed by users privacy settings.
+  # @attr is_group_call_supported [Boolean] True, if the other party supports upgrading of the call to a group call.
   # @attr custom_parameters [TD::Types::String] Custom JSON-encoded call parameters to be passed to tgcalls.
   class CallState::Ready < CallState
     attribute :protocol, TD::Types::CallProtocol
@@ -15,6 +16,7 @@ module TD::Types
     attribute :encryption_key, TD::Types::Coercible::String
     attribute :emojis, TD::Types::Array.of(TD::Types::String)
     attribute :allow_p2p, TD::Types::Bool
+    attribute :is_group_call_supported, TD::Types::Bool
     attribute :custom_parameters, TD::Types::String
   end
 end

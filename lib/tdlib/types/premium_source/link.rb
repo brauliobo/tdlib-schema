@@ -1,5 +1,5 @@
 module TD::Types
-  # A user opened an internal link of the type internalLinkTypePremiumFeatures.
+  # A user opened an internal link of the type internalLinkTypePremiumFeaturesPage.
   #
   # @attr referrer [TD::Types::String] The referrer from the link.
   class PremiumSource::Link < PremiumSource

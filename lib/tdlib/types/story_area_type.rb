@@ -8,6 +8,7 @@ module TD::Types
       message
       link
       weather
+      upgraded_gift
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/story_area_type/#{type}"
     end

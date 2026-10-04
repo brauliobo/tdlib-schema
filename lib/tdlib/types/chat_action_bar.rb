@@ -3,7 +3,6 @@ module TD::Types
   class ChatActionBar < Base
     %w[
       report_spam
-      report_unrelated_location
       invite_members
       report_add_block
       add_contact

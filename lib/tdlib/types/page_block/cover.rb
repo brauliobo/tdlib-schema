@@ -1,5 +1,5 @@
 module TD::Types
-  # A page cover.
+  # A page cover; instant view only.
   #
   # @attr cover [TD::Types::PageBlock] Cover.
   class PageBlock::Cover < PageBlock

@@ -8,10 +8,12 @@ module TD::Types
   #   cryptocurrency.
   # @attr available_amount [Integer] Amount of the cryptocurrency available for withdrawal, in the smallest units of
   #   the cryptocurrency.
+  # @attr withdrawal_enabled [Boolean] True, if Telegram Stars can be withdrawn now or later.
   class ChatRevenueAmount < Base
     attribute :cryptocurrency, TD::Types::String
     attribute :total_amount, TD::Types::Coercible::Integer
     attribute :balance_amount, TD::Types::Coercible::Integer
     attribute :available_amount, TD::Types::Coercible::Integer
+    attribute :withdrawal_enabled, TD::Types::Bool
   end
 end

@@ -3,7 +3,7 @@ module TD::Types
   #
   # @attr group_call_id [Integer] Identifier of the video chat.
   #   The video chat can be received through the method getGroupCall.
-  # @attr start_date [Integer] Point in time (Unix timestamp) when the group call is supposed to be started by an
+  # @attr start_date [Integer] Point in time (Unix timestamp) when the group call is expected to be started by an
   #   administrator.
   class MessageContent::VideoChatScheduled < MessageContent
     attribute :group_call_id, TD::Types::Coercible::Integer

@@ -1,5 +1,5 @@
 module TD::Types
-  # A rich text email link.
+  # A rich text email address.
   #
   # @attr text [TD::Types::RichText] Text.
   # @attr email_address [TD::Types::String] Email address.

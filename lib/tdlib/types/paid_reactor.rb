@@ -1,10 +1,10 @@
 module TD::Types
-  # Contains information about a user that added paid reactions.
+  # Contains information about a user who added paid reactions.
   #
   # @attr sender_id [TD::Types::MessageSender, nil] Identifier of the user or chat that added the reactions; may be
   #   null for anonymous reactors that aren't the current user.
   # @attr star_count [Integer] Number of Telegram Stars added.
-  # @attr is_top [Boolean] True, if the reactor is one of the most active reactors; can be false if the reactor is the
+  # @attr is_top [Boolean] True, if the reactor is one of the most active reactors; may be false if the reactor is the
   #   current user.
   # @attr is_me [Boolean] True, if the paid reaction was added by the current user.
   # @attr is_anonymous [Boolean] True, if the reactor is anonymous.

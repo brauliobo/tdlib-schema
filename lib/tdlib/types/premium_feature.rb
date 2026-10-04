@@ -26,6 +26,11 @@ module TD::Types
       last_seen_times
       business
       message_effects
+      checklists
+      paid_messages
+      protect_private_chat_content
+      text_composition
+      rich_messages
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/premium_feature/#{type}"
     end

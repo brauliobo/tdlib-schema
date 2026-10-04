@@ -4,9 +4,11 @@ module TD::Types
   # @attr currency [TD::Types::String] ISO 4217 currency code of the payment currency.
   # @attr amount [Integer] Paid amount, in the smallest units of the currency.
   # @attr star_count [Integer] Number of bought Telegram Stars.
+  # @attr chat_id [Integer] Identifier of the chat that is supposed to receive the Telegram Stars; pass 0 if none.
   class StorePaymentPurpose::Stars < StorePaymentPurpose
     attribute :currency, TD::Types::String
     attribute :amount, TD::Types::Coercible::Integer
     attribute :star_count, TD::Types::Coercible::Integer
+    attribute :chat_id, TD::Types::Coercible::Integer
   end
 end

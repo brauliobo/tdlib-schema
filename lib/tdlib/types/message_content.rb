@@ -3,6 +3,7 @@ module TD::Types
   class MessageContent < Base
     %w[
       text
+      rich_message
       animation
       audio
       document
@@ -16,6 +17,7 @@ module TD::Types
       expired_video
       expired_video_note
       expired_voice_note
+      live_location
       location
       venue
       contact
@@ -23,22 +25,34 @@ module TD::Types
       dice
       game
       poll
+      stake_dice
       story
+      checklist
       invoice
       call
+      group_call
       video_chat_scheduled
       video_chat_started
       video_chat_ended
       invite_video_chat_participants
+      poll_option_added
+      poll_option_deleted
       basic_group_chat_create
       supergroup_chat_create
       chat_change_title
       chat_change_photo
       chat_delete_photo
+      chat_owner_left
+      chat_owner_changed
+      chat_has_protected_content_toggled
+      chat_has_protected_content_disable_requested
       chat_add_members
       chat_join_by_link
       chat_join_by_request
+      chat_join_from_community
       chat_delete_member
+      chat_added_to_community
+      chat_removed_from_community
       chat_upgrade_to
       chat_upgrade_from
       pin_message
@@ -52,18 +66,37 @@ module TD::Types
       forum_topic_is_closed_toggled
       forum_topic_is_hidden_toggled
       suggest_profile_photo
+      suggest_birthdate
       custom_service_action
       game_score
+      managed_bot_created
       payment_successful
       payment_successful_bot
       payment_refunded
       gifted_premium
       premium_gift_code
-      premium_giveaway_created
-      premium_giveaway
-      premium_giveaway_completed
-      premium_giveaway_winners
+      giveaway_created
+      giveaway
+      giveaway_completed
+      giveaway_winners
       gifted_stars
+      gifted_grams
+      giveaway_prize_stars
+      gift
+      upgraded_gift
+      refunded_upgraded_gift
+      upgraded_gift_purchase_offer
+      upgraded_gift_purchase_offer_rejected
+      paid_messages_refunded
+      paid_message_price_changed
+      direct_message_price_changed
+      checklist_tasks_done
+      checklist_tasks_added
+      suggested_post_approval_failed
+      suggested_post_approved
+      suggested_post_declined
+      suggested_post_paid
+      suggested_post_refunded
       contact_registered
       users_shared
       chat_shared

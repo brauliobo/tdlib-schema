@@ -6,6 +6,7 @@ module TD::Types
       animation
       audio
       document
+      live_photo_video
       notification_sound
       photo
       photo_story
@@ -13,6 +14,11 @@ module TD::Types
       secret
       secret_thumbnail
       secure
+      self_destructing_live_photo_video
+      self_destructing_photo
+      self_destructing_video
+      self_destructing_video_note
+      self_destructing_voice_note
       sticker
       thumbnail
       unknown

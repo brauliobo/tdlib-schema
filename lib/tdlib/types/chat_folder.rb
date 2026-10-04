@@ -1,7 +1,7 @@
 module TD::Types
   # Represents a folder for user chats.
   #
-  # @attr title [TD::Types::String] The title of the folder; 1-12 characters without line feeds.
+  # @attr name [TD::Types::ChatFolderName] The name of the folder.
   # @attr icon [TD::Types::ChatFolderIcon, nil] The chosen icon for the chat folder; may be null.
   #   If null, use getChatFolderDefaultIconName to get default icon name for the folder.
   # @attr color_id [Integer] The identifier of the chosen color for the chat folder icon; from -1 to 6.
@@ -26,7 +26,7 @@ module TD::Types
   # @attr include_groups [Boolean] True, if basic groups and supergroups need to be included.
   # @attr include_channels [Boolean] True, if channels need to be included.
   class ChatFolder < Base
-    attribute :title, TD::Types::String
+    attribute :name, TD::Types::ChatFolderName
     attribute :icon, TD::Types::ChatFolderIcon.optional.default(nil)
     attribute :color_id, TD::Types::Coercible::Integer
     attribute :is_shareable, TD::Types::Bool

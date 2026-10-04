@@ -9,12 +9,12 @@ module TD::Types
   #   shared.
   # @attr mean_message_reaction_count [TD::Types::StatisticalValue] Mean number of times reactions were added to the
   #   recently sent messages.
-  # @attr mean_story_view_count [TD::Types::StatisticalValue] Mean number of times the recently sent stories were
+  # @attr mean_story_view_count [TD::Types::StatisticalValue] Mean number of times the recently posted stories were
   #   viewed.
-  # @attr mean_story_share_count [TD::Types::StatisticalValue] Mean number of times the recently sent stories were
+  # @attr mean_story_share_count [TD::Types::StatisticalValue] Mean number of times the recently posted stories were
   #   shared.
   # @attr mean_story_reaction_count [TD::Types::StatisticalValue] Mean number of times reactions were added to the
-  #   recently sent stories.
+  #   recently posted stories.
   # @attr enabled_notifications_percentage [Float] A percentage of users with enabled notifications for the chat;
   #   0-100.
   # @attr member_count_graph [TD::Types::StatisticalGraph] A graph containing number of members in the chat.
@@ -35,7 +35,7 @@ module TD::Types
   # @attr instant_view_interaction_graph [TD::Types::StatisticalGraph] A graph containing number of views of associated
   #   with the chat instant views.
   # @attr recent_interactions [Array<TD::Types::ChatStatisticsInteractionInfo>] Detailed statistics about number of
-  #   views and shares of recently sent messages and stories.
+  #   views and shares of recently sent messages and posted stories.
   class ChatStatistics::Channel < ChatStatistics
     attribute :period, TD::Types::DateRange
     attribute :member_count, TD::Types::StatisticalValue

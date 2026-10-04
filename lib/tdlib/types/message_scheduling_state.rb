@@ -4,6 +4,7 @@ module TD::Types
     %w[
       send_at_date
       send_when_online
+      send_when_video_processed
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/message_scheduling_state/#{type}"
     end

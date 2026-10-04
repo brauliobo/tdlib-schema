@@ -4,9 +4,12 @@ module TD::Types
   # @attr user_id [Integer] User identifier of the administrator.
   # @attr custom_title [TD::Types::String] Custom title of the administrator.
   # @attr is_owner [Boolean] True, if the user is the owner of the chat.
+  # @attr can_be_edited [Boolean] True, if the current user can edit the administrator privileges for the
+  #   administrator.
   class ChatAdministrator < Base
     attribute :user_id, TD::Types::Coercible::Integer
     attribute :custom_title, TD::Types::String
     attribute :is_owner, TD::Types::Bool
+    attribute :can_be_edited, TD::Types::Bool
   end
 end

@@ -3,6 +3,7 @@ module TD::Types
   #
   # @attr photo [TD::Types::ChatPhoto, nil] Chat photo; may be null if empty or unknown.
   #   If non-null, then it is the same photo as in chat.photo.
+  # @attr community_id [Integer] Identifier of the community to which the corresponding chat was added.
   # @attr description [TD::Types::String] Supergroup or channel description.
   # @attr member_count [Integer] Number of members in the supergroup or channel; 0 if unknown.
   # @attr administrator_count [Integer] Number of privileged users in the supergroup or channel; 0 if unknown.
@@ -10,11 +11,15 @@ module TD::Types
   # @attr banned_count [Integer] Number of users banned from chat; 0 if unknown.
   # @attr linked_chat_id [Integer] Chat identifier of a discussion group for the channel, or a channel, for which the
   #   supergroup is the designated discussion group; 0 if none or unknown.
+  # @attr direct_messages_chat_id [Integer] Chat identifier of a direct messages group for the channel, or a channel,
+  #   for which the supergroup is the designated direct messages group; 0 if none.
   # @attr slow_mode_delay [Integer] Delay between consecutive sent messages for non-administrator supergroup members,
   #   in seconds.
   # @attr slow_mode_delay_expires_in [Float] Time left before next message can be sent in the supergroup, in seconds.
   #   An {TD::Types::Update::SupergroupFullInfo} update is not triggered when value of this field changes, but both new
   #   and old values are non-zero.
+  # @attr can_enable_paid_messages [Boolean] True, if paid messages can be enabled in the supergroup chat; for
+  #   supergroup only.
   # @attr can_enable_paid_reaction [Boolean] True, if paid reaction can be enabled in the channel chat; for channels
   #   only.
   # @attr can_get_members [Boolean] True, if members of the chat can be retrieved via getSupergroupMembers or
@@ -29,6 +34,8 @@ module TD::Types
   # @attr can_get_revenue_statistics [Boolean] True, if the supergroup or channel revenue statistics are available.
   # @attr can_get_star_revenue_statistics [Boolean] True, if the supergroup or channel Telegram Star revenue statistics
   #   are available.
+  # @attr can_send_gift [Boolean] True, if the user can send a gift to the supergroup or channel using sendGift or
+  #   transferGift.
   # @attr can_toggle_aggressive_anti_spam [Boolean] True, if aggressive anti-spam checks can be enabled or disabled in
   #   the supergroup.
   # @attr is_all_history_available [Boolean] True, if new chat members will have access to old messages.
@@ -43,9 +50,13 @@ module TD::Types
   # @attr has_paid_media_allowed [Boolean] True, if paid media can be sent and forwarded to the channel chat; for
   #   channels only.
   # @attr has_pinned_stories [Boolean] True, if the supergroup or channel has pinned stories.
+  # @attr gift_count [Integer] Number of saved to profile gifts for channels without can_post_messages administrator
+  #   right, otherwise, the total number of received gifts.
   # @attr my_boost_count [Integer] Number of times the current user boosted the supergroup or channel.
   # @attr unrestrict_boost_count [Integer] Number of times the supergroup must be boosted by a user to ignore slow mode
   #   and chat permission restrictions; 0 if unspecified.
+  # @attr outgoing_paid_message_star_count [Integer] Number of Telegram Stars that must be paid by the current user for
+  #   each sent message to the supergroup.
   # @attr sticker_set_id [Integer] Identifier of the supergroup sticker set that must be shown before user sticker
   #   sets; 0 if none.
   # @attr custom_emoji_sticker_set_id [Integer] Identifier of the custom emoji sticker set that can be used in the
@@ -53,21 +64,29 @@ module TD::Types
   # @attr location [TD::Types::ChatLocation, nil] Location to which the supergroup is connected; may be null if none.
   # @attr invite_link [TD::Types::ChatInviteLink, nil] Primary invite link for the chat; may be null.
   #   For chat administrators with can_invite_users right only.
+  # @attr guard_bot_user_id [Integer] User identifier of the guard bot in the group; for chat administrators only.
   # @attr bot_commands [Array<TD::Types::BotCommands>] List of commands of bots in the group.
+  # @attr bot_verification [TD::Types::BotVerification, nil] Information about verification status of the supergroup or
+  #   the channel provided by a bot; may be null if none or unknown.
+  # @attr main_profile_tab [TD::Types::ProfileTab, nil] The main tab chosen by the administrators of the channel; may
+  #   be null if not chosen manually.
   # @attr upgraded_from_basic_group_id [Integer] Identifier of the basic group from which supergroup was upgraded; 0 if
   #   none.
   # @attr upgraded_from_max_message_id [Integer] Identifier of the last message in the basic group from which
   #   supergroup was upgraded; 0 if none.
   class SupergroupFullInfo < Base
     attribute :photo, TD::Types::ChatPhoto.optional.default(nil)
+    attribute :community_id, TD::Types::Coercible::Integer
     attribute :description, TD::Types::String
     attribute :member_count, TD::Types::Coercible::Integer
     attribute :administrator_count, TD::Types::Coercible::Integer
     attribute :restricted_count, TD::Types::Coercible::Integer
     attribute :banned_count, TD::Types::Coercible::Integer
     attribute :linked_chat_id, TD::Types::Coercible::Integer
+    attribute :direct_messages_chat_id, TD::Types::Coercible::Integer
     attribute :slow_mode_delay, TD::Types::Coercible::Integer
     attribute :slow_mode_delay_expires_in, TD::Types::Coercible::Float
+    attribute :can_enable_paid_messages, TD::Types::Bool
     attribute :can_enable_paid_reaction, TD::Types::Bool
     attribute :can_get_members, TD::Types::Bool
     attribute :has_hidden_members, TD::Types::Bool
@@ -77,19 +96,25 @@ module TD::Types
     attribute :can_get_statistics, TD::Types::Bool
     attribute :can_get_revenue_statistics, TD::Types::Bool
     attribute :can_get_star_revenue_statistics, TD::Types::Bool
+    attribute :can_send_gift, TD::Types::Bool
     attribute :can_toggle_aggressive_anti_spam, TD::Types::Bool
     attribute :is_all_history_available, TD::Types::Bool
     attribute :can_have_sponsored_messages, TD::Types::Bool
     attribute :has_aggressive_anti_spam_enabled, TD::Types::Bool
     attribute :has_paid_media_allowed, TD::Types::Bool
     attribute :has_pinned_stories, TD::Types::Bool
+    attribute :gift_count, TD::Types::Coercible::Integer
     attribute :my_boost_count, TD::Types::Coercible::Integer
     attribute :unrestrict_boost_count, TD::Types::Coercible::Integer
+    attribute :outgoing_paid_message_star_count, TD::Types::Coercible::Integer
     attribute :sticker_set_id, TD::Types::Coercible::Integer
     attribute :custom_emoji_sticker_set_id, TD::Types::Coercible::Integer
     attribute :location, TD::Types::ChatLocation.optional.default(nil)
     attribute :invite_link, TD::Types::ChatInviteLink.optional.default(nil)
+    attribute :guard_bot_user_id, TD::Types::Coercible::Integer
     attribute :bot_commands, TD::Types::Array.of(TD::Types::BotCommands)
+    attribute :bot_verification, TD::Types::BotVerification.optional.default(nil)
+    attribute :main_profile_tab, TD::Types::ProfileTab.optional.default(nil)
     attribute :upgraded_from_basic_group_id, TD::Types::Coercible::Integer
     attribute :upgraded_from_max_message_id, TD::Types::Coercible::Integer
   end

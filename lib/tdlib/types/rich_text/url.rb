@@ -3,7 +3,7 @@ module TD::Types
   #
   # @attr text [TD::Types::RichText] Text.
   # @attr url [TD::Types::String] URL.
-  # @attr is_cached [Boolean] True, if the URL has cached instant view server-side.
+  # @attr is_cached [Boolean] True, if the URL has cached instant view server-side; instant view only.
   class RichText::Url < RichText
     attribute :text, TD::Types::RichText
     attribute :url, TD::Types::String

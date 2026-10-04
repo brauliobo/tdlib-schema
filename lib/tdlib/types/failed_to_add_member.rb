@@ -1,5 +1,5 @@
 module TD::Types
-  # Contains information about a user that has failed to be added to a chat.
+  # Contains information about a user who has failed to be added to a chat.
   #
   # @attr user_id [Integer] User identifier.
   # @attr premium_would_allow_invite [Boolean] True, if subscription to Telegram Premium would have allowed to add the

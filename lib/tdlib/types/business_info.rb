@@ -3,10 +3,10 @@ module TD::Types
   #
   # @attr location [TD::Types::BusinessLocation, nil] Location of the business; may be null if none.
   # @attr opening_hours [TD::Types::BusinessOpeningHours, nil] Opening hours of the business; may be null if none.
-  #   The hours are guaranteed to be valid and has already been split by week days.
+  #   The hours are guaranteed to be valid and have already been split by week days.
   # @attr local_opening_hours [TD::Types::BusinessOpeningHours, nil] Opening hours of the business in the local time;
   #   may be null if none.
-  #   The hours are guaranteed to be valid and has already been split by week days.
+  #   The hours are guaranteed to be valid and have already been split by week days.
   #   Local time zone identifier will be empty.
   #   An {TD::Types::Update::UserFullInfo} update is not triggered when value of this field changes.
   # @attr next_open_in [Integer] Time left before the business will open the next time, in seconds; 0 if unknown.

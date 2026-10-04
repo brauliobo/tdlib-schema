@@ -1,5 +1,5 @@
 module TD::Types
-  # The parameters of speech recognition without Telegram Premium subscription has changed.
+  # The parameters of speech recognition without Telegram Premium subscription have changed.
   #
   # @attr max_media_duration [Integer] The maximum allowed duration of media for speech recognition without Telegram
   #   Premium subscription, in seconds.

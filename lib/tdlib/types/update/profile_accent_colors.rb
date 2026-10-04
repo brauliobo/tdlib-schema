@@ -4,7 +4,7 @@ module TD::Types
   # @attr colors [Array<TD::Types::ProfileAccentColor>] Information about supported colors.
   # @attr available_accent_color_ids [Array<Integer>] The list of accent color identifiers, which can be set through
   #   setProfileAccentColor and setChatProfileAccentColor.
-  #   The colors must be shown in the specififed order.
+  #   The colors must be shown in the specified order.
   class Update::ProfileAccentColors < Update
     attribute :colors, TD::Types::Array.of(TD::Types::ProfileAccentColor)
     attribute :available_accent_color_ids, TD::Types::Array.of(TD::Types::Coercible::Integer)

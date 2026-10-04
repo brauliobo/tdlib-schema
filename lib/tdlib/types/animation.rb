@@ -8,7 +8,7 @@ module TD::Types
   # @attr file_name [TD::Types::String] Original name of the file; as defined by the sender.
   # @attr mime_type [TD::Types::String] MIME type of the file, usually "image/gif" or "video/mp4".
   # @attr has_stickers [Boolean] True, if stickers were added to the animation.
-  #   The list of corresponding sticker set can be received using getAttachedStickerSets.
+  #   The list of corresponding sticker sets can be received using getAttachedStickerSets.
   # @attr minithumbnail [TD::Types::Minithumbnail, nil] Animation minithumbnail; may be null.
   # @attr thumbnail [TD::Types::Thumbnail, nil] Animation thumbnail in JPEG or MPEG4 format; may be null.
   # @attr animation [TD::Types::File] File containing the animation.

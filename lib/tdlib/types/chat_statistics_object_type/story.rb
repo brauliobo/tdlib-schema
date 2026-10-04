@@ -1,5 +1,5 @@
 module TD::Types
-  # Describes a story sent by the chat.
+  # Describes a story posted on behalf of the chat.
   #
   # @attr story_id [Integer] Story identifier.
   class ChatStatisticsObjectType::Story < ChatStatisticsObjectType

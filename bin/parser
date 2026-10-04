@@ -157,7 +157,8 @@ end
 # Splits tl file into usable chunks. Usually starts with a SuperClass followed by subclasses.
 def split_tl_file(tl_file, range = 0..-1)
   # A fix for some entries (mainly chatAction ones) having a different structure from the rest
-  tl_file.gsub!(";\n//", ";\n\n//")
+  # but not for "//-" lines, which continue the previous parameter description
+  tl_file.gsub!(%r{;\n//(?!-)}, ";\n\n//")
 
   tl_file.split("\n\n\n")[range].map { |e| e.split("\n\n") }.flatten
 end
@@ -375,7 +376,10 @@ module TD::Types
       if (klass = LOOKUP_TABLE[type])
         const_get(klass).new(object)
       else
-        raise ArgumentError.new("Can't find class for \#{type}")
+        # Lenient: define unknown types on the fly using CamelCase of @type
+        const_name = camelize(type)
+        TD::Types.const_set(const_name, ::Class.new(Base)) unless TD::Types.const_defined?(const_name, false)
+        const_get(const_name).new(object)
       end
     else 
       object

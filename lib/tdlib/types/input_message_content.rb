@@ -3,6 +3,7 @@ module TD::Types
   class InputMessageContent < Base
     %w[
       text
+      rich_message
       animation
       audio
       document
@@ -12,6 +13,7 @@ module TD::Types
       video
       video_note
       voice_note
+      live_location
       location
       venue
       contact
@@ -19,7 +21,9 @@ module TD::Types
       game
       invoice
       poll
+      stake_dice
       story
+      checklist
       forwarded
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/input_message_content/#{type}"

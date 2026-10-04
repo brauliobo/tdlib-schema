@@ -1,20 +1,12 @@
 module TD::Types
   # The link is a link to a video.
   #
-  # @attr url [TD::Types::String, nil] URL of the video; may be empty if none.
-  # @attr mime_type [TD::Types::String] MIME type of the video file.
-  # @attr video [TD::Types::Video, nil] The video description; may be null if unknown.
-  # @attr width [Integer] Expected width of the preview.
-  # @attr height [Integer] Expected height of the preview.
-  # @attr duration [Integer] Duration of the video, in seconds; 0 if unknown.
-  # @attr author [TD::Types::String] Author of the video.
+  # @attr video [TD::Types::Video] The video description.
+  # @attr cover [TD::Types::Photo, nil] Cover of the video; may be null if none.
+  # @attr start_timestamp [Integer] Timestamp from which the video playing must start, in seconds.
   class LinkPreviewType::Video < LinkPreviewType
-    attribute :url, TD::Types::String.optional.default(nil)
-    attribute :mime_type, TD::Types::String
-    attribute :video, TD::Types::Video.optional.default(nil)
-    attribute :width, TD::Types::Coercible::Integer
-    attribute :height, TD::Types::Coercible::Integer
-    attribute :duration, TD::Types::Coercible::Integer
-    attribute :author, TD::Types::String
+    attribute :video, TD::Types::Video
+    attribute :cover, TD::Types::Photo.optional.default(nil)
+    attribute :start_timestamp, TD::Types::Coercible::Integer
   end
 end

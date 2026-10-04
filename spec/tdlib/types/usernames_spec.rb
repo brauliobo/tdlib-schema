@@ -7,6 +7,7 @@ RSpec.describe TD::Types::Usernames do
     described_class.new(
       active_usernames:   ['Materials_Channel'],
       disabled_usernames: [],
+      collectible_usernames: [],
       editable_username:  'Materials_Channel'
     )
   end
